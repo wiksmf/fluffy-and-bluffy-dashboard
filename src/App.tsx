@@ -1,7 +1,16 @@
+import styled from "styled-components";
+import GlobalStyles from "./styles/GlobalStyles";
+
+const H1 = styled.h1`
+  color: var(--color-primary);
+  background-color: var(--color-tertiary);
+`;
+
 function App() {
   return (
     <>
-      <h1>Hello world</h1>
+      <GlobalStyles />
+      <H1>Hello world</H1>
     </>
   );
 }
