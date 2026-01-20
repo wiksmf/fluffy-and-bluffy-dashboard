@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import AddService from "../features/services/AddService";
-import ServiceTable from "../features/services/ServiceTable";
+import AddPlan from "../features/plans/AddPlan";
+import ServiceTable from "../features/plans/PlanTable";
 
 import Heading from "../ui/Heading";
 import Row from "../ui/Row";
@@ -15,9 +15,9 @@ function Plans() {
   return (
     <>
       <Row type="horizontal">
-        <Heading as="h1">Update services information</Heading>
+        <Heading as="h1">Update plans information</Heading>
         <OpRow>
-          <AddService />
+          <AddPlan />
         </OpRow>
       </Row>
 

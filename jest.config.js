@@ -13,6 +13,8 @@ export default {
       {
         tsconfig: {
           jsx: "react-jsx",
+          esModuleInterop: true,
+          allowSyntheticDefaultImports: true,
         },
       },
     ],
@@ -28,4 +30,12 @@ export default {
     "!src/vite-env.d.ts",
   ],
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json"],
+  transformIgnorePatterns: ["node_modules/(?!(.*\\.mjs$))"],
+  testEnvironmentOptions: {
+    customExportConditions: [""],
+  },
+  globals: {
+    TextEncoder: TextEncoder,
+    TextDecoder: TextDecoder,
+  },
 };

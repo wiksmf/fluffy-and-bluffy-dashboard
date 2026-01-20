@@ -15,7 +15,7 @@ const GlobalStyles = createGlobalStyle`
       --color-grey-800: #1e2939;
       --color-grey-900: #101828;
 
-      --backdrop-color: rgba(255, 255, 255, 0.1);
+      --backdrop-color: rgba(108, 108, 108, 0.5);
 
       --image-grayscale: 0;
       --image-opacity: 100%;
@@ -51,9 +51,9 @@ const GlobalStyles = createGlobalStyle`
     --color-red-700: #b91c1c;
     --color-red-800: #991b1b;
 
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-    --shadow-md: 0px 0.6rem 2.4rem rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 2.4rem 3.2rem rgba(0, 0, 0, 0.4);
+    --shadow-sm: 0 0 4px 0.5px rgba(115, 115, 115, 0.1);
+    --shadow-md: 0 0 0.6rem 2.4rem rgba(115, 115, 115, 0.3);
+    --shadow-lg: 0 0 2.4rem 3.2rem rgba(115, 115, 115, 0.4);
 
     --border-radius-xs: 0.3rem;
     --border-radius-sm: 0.5rem;

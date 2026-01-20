@@ -5,8 +5,9 @@ import {
   HiOutlineHome,
   HiOutlineCalendarDays,
   HiOutlineUser,
-  HiOutlineCog6Tooth,
+  HiOutlineIdentification,
   HiOutlineSparkles,
+  HiOutlineSwatch,
 } from "react-icons/hi2";
 
 const NavList = styled.ul`
@@ -23,7 +24,7 @@ const StyledNavLink = styled(NavLink)`
     gap: 1.5rem;
     font-size: 1.6rem;
     font-weight: 500;
-    color: var(--color-gray-800);
+    color: var(--color-grey-800);
     padding: 1.5rem 2.5rem;
     transition: all 0.3s;
   }
@@ -69,21 +70,27 @@ function MainNav() {
           </StyledNavLink>
         </li>
         <li>
+          <StyledNavLink to="/plans">
+            <HiOutlineSwatch />
+            <span>Plans</span>
+          </StyledNavLink>
+        </li>
+        <li>
           <StyledNavLink to="/services">
             <HiOutlineSparkles />
             <span>Services</span>
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/users">
-            <HiOutlineUser />
-            <span>Users</span>
+          <StyledNavLink to="/contacts">
+            <HiOutlineIdentification />
+            <span>Contacts</span>
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/settings">
-            <HiOutlineCog6Tooth />
-            <span>Settings</span>
+          <StyledNavLink to="/users">
+            <HiOutlineUser />
+            <span>Users</span>
           </StyledNavLink>
         </li>
       </NavList>
