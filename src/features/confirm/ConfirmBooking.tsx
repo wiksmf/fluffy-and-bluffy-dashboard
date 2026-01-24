@@ -61,7 +61,7 @@ function ConfirmBooking() {
       <BookingDataBox booking={booking} />
 
       <Box>
-        <FormRow label={`Paid amount for ${first_name} ${last_name}:`}>
+        <FormRow label={`Paid amount:`}>
           <Input
             type="number"
             step="0.01"

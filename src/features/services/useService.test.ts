@@ -34,7 +34,7 @@ describe("useServices", () => {
       wrapper: createWrapper(),
     });
 
-    expect(result.current.isLoading).toBe(true);
+    expect(result.current.isPending).toBe(true);
     expect(result.current.services).toBeUndefined();
   });
 
@@ -65,7 +65,7 @@ describe("useServices", () => {
     });
 
     await waitFor(() => {
-      expect(result.current.isLoading).toBe(false);
+      expect(result.current.isPending).toBe(false);
     });
 
     expect(result.current.services).toEqual(mockServices);
@@ -80,7 +80,7 @@ describe("useServices", () => {
     });
 
     await waitFor(() => {
-      expect(result.current.isLoading).toBe(false);
+      expect(result.current.isPending).toBe(false);
     });
 
     expect(result.current.services).toBeUndefined();
@@ -94,7 +94,7 @@ describe("useServices", () => {
     });
 
     // The hook should be using the "services" query key
-    expect(result.current.isLoading).toBeDefined();
+    expect(result.current.isPending).toBeDefined();
   });
 
   it("calls getServices API function", async () => {
@@ -117,7 +117,7 @@ describe("useServices", () => {
     });
 
     await waitFor(() => {
-      expect(result.current.isLoading).toBe(false);
+      expect(result.current.isPending).toBe(false);
     });
 
     expect(result.current.services).toEqual([]);
@@ -131,7 +131,7 @@ describe("useServices", () => {
     });
 
     await waitFor(() => {
-      expect(result.current.isLoading).toBe(false);
+      expect(result.current.isPending).toBe(false);
     });
 
     expect(result.current.services).toBe(null);

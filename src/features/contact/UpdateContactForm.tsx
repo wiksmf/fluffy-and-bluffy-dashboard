@@ -31,7 +31,7 @@ function UpdateSettingsForm() {
         />
       </FormRow>
 
-      <FormRow label="Email">
+      <FormRow label="E-mail">
         <Input
           type="text"
           id="email"

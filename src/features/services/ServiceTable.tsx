@@ -1,9 +1,10 @@
 import { useServices } from "./useService";
+import { useSearchParams } from "react-router-dom";
 
 import Spinner from "../../ui/Spinner";
 import ServiceRow from "./ServiceRow";
 import Table from "../../ui/Table";
-import { useSearchParams } from "react-router-dom";
+import Empty from "../../ui/Empty";
 
 type Service = {
   id: number;
@@ -43,13 +44,13 @@ function ServiceTable() {
   });
 
   return (
-    <Table columns="8rem 20rem 40rem 20rem 5rem 5rem">
+    <Table columns="8rem 17rem 35rem 20rem 15rem 5rem">
       <Table.Header>
         <div>Icon</div>
         <div>Name</div>
         <div>Description</div>
         <div>Short Description</div>
-        <div>Show Home</div>
+        <div>Displayed on homepage</div>
         <div></div>
       </Table.Header>
 

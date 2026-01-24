@@ -23,7 +23,7 @@ export function useCheckout() {
 
     onSuccess: (data) => {
       toast.success(`Booking #${data.id} successfully closed!`);
-      queryClient.invalidateQueries({ active: true });
+      queryClient.invalidateQueries({ queryKey: ["bookings"] });
       navigate(`/booking/${data.id}`);
     },
 

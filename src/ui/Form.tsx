@@ -8,7 +8,7 @@ const Form = styled.form<FormProps>`
   ${(props) =>
     (props.type === "regular" || !props.type) &&
     css`
-      padding: 2.4rem 0;
+      padding: 2.4rem 4rem;
       border: 1px solid var(--color-grey-200);
       background-color: var(--color-grey-50);
       border-radius: var(--border-radius-md);
