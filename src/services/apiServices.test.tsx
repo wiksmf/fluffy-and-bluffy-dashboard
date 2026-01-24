@@ -58,7 +58,7 @@ describe("apiServices", () => {
       const mockServices = [
         {
           id: 1,
-          title: "Service 1",
+          name: "Service 1",
           description: "Description 1",
           short_description: "Short 1",
           show_home: true,
@@ -66,7 +66,7 @@ describe("apiServices", () => {
         },
         {
           id: 2,
-          title: "Service 2",
+          name: "Service 2",
           description: "Description 2",
           short_description: "Short 2",
           show_home: false,
@@ -104,7 +104,7 @@ describe("apiServices", () => {
 
   describe("createService", () => {
     const mockNewService = {
-      title: "New Service",
+      name: "New Service",
       description: "New description",
       short_description: "Short desc",
       show_home: true,
@@ -116,7 +116,7 @@ describe("apiServices", () => {
     it("creates service successfully with file upload", async () => {
       const createdService = {
         id: 3,
-        title: "New Service",
+        name: "New Service",
         description: "New description",
         short_description: "Short desc",
         show_home: true,
@@ -194,7 +194,7 @@ describe("apiServices", () => {
     it("throws error when storage upload fails", async () => {
       const createdService = {
         id: 3,
-        title: "New Service",
+        name: "New Service",
         description: "New description",
       };
 
@@ -227,7 +227,7 @@ describe("apiServices", () => {
 
   describe("updateService", () => {
     const mockUpdateService = {
-      title: "Updated Service",
+      name: "Updated Service",
       description: "Updated description",
       short_description: "Updated short desc",
       show_home: false,

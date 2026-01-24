@@ -8,6 +8,7 @@ import PlanForm from "./PlanForm";
 import Modal from "../../ui/Modal";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import Table from "../../ui/Table";
+import ButtonIcon from "../../ui/ButtonIcon";
 
 type PlanProps = {
   id: number;
@@ -36,36 +37,6 @@ const OpRow = styled.div`
   gap: 0.8rem;
 `;
 
-const StyledButton = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 4rem;
-  height: 4rem;
-  text-align: left;
-  background: none;
-  border: none;
-  border-radius: 100%;
-  padding: 1rem;
-  background-color: var(--color-grey-100);
-  transition: all 0.3s;
-
-  & svg {
-    width: 1.7rem;
-    height: 1.7rem;
-    color: var(--color-grey-600);
-    transition: all 0.3s;
-  }
-
-  &:hover {
-    background-color: var(--color-primary);
-  }
-
-  &:hover svg {
-    color: var(--color-grey-50);
-  }
-`;
-
 function PlanRow({ plan }: { plan: PlanProps }) {
   const { id: planId, name, description, price } = plan;
 
@@ -81,18 +52,18 @@ function PlanRow({ plan }: { plan: PlanProps }) {
         <OpRow>
           <Modal>
             <Modal.Open opens="update">
-              <StyledButton disabled={isDeleting} aria-label="Edit plan">
+              <ButtonIcon disabled={isDeleting} aria-label="Edit plan">
                 <HiOutlinePencil />
-              </StyledButton>
+              </ButtonIcon>
             </Modal.Open>
             <Modal.Window name="update">
               <PlanForm planToEdit={plan} />
             </Modal.Window>
 
             <Modal.Open opens="delete">
-              <StyledButton aria-label="Delete plan">
+              <ButtonIcon aria-label="Delete plan">
                 <HiOutlineTrash />
-              </StyledButton>
+              </ButtonIcon>
             </Modal.Open>
 
             <Modal.Window name="delete">

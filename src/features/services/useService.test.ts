@@ -42,7 +42,7 @@ describe("useServices", () => {
     const mockServices = [
       {
         id: 1,
-        title: "Service 1",
+        name: "Service 1",
         description: "Description 1",
         short_description: "Short 1",
         show_home: true,
@@ -50,7 +50,7 @@ describe("useServices", () => {
       },
       {
         id: 2,
-        title: "Service 2",
+        name: "Service 2",
         description: "Description 2",
         short_description: "Short 2",
         show_home: false,

@@ -8,6 +8,8 @@ import AppLayout from "./ui/AppLayout";
 import Dashboard from "./pages/Dashboard";
 import Account from "./pages/Account";
 import Bookings from "./pages/Bookings";
+import Booking from "./pages/Booking";
+import Confirm from "./pages/Confirm";
 import Plans from "./pages/Plans";
 import Services from "./pages/Services";
 import Contacts from "./pages/Contacts";
@@ -36,6 +38,8 @@ function App() {
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="account" element={<Account />} />
             <Route path="bookings" element={<Bookings />} />
+            <Route path="booking/:bookingId" element={<Booking />} />
+            <Route path="confirm/:bookingId" element={<Confirm />} />
             <Route path="plans" element={<Plans />} />
             <Route path="services" element={<Services />} />
             <Route path="contacts" element={<Contacts />} />

@@ -10,7 +10,7 @@ import Table from "../../ui/Table";
 
 type ServiceProps = {
   id: number;
-  title: string;
+  name: string;
   description: string;
   short_description?: string;
   show_home?: boolean;
@@ -85,7 +85,7 @@ const StyledButton = styled.button`
 function ServiceRow({ service }: { service: ServiceProps }) {
   const {
     id: serviceId,
-    title,
+    name,
     description,
     short_description,
     show_home,
@@ -97,7 +97,7 @@ function ServiceRow({ service }: { service: ServiceProps }) {
     <>
       <Table.Row>
         <Img src={icon} />
-        <Service>{title}</Service>
+        <Service>{name}</Service>
         <Description>{description}</Description>
         <ShortDescription>{short_description}</ShortDescription>
         <ShowHome color={show_home ? "true" : "false"}>

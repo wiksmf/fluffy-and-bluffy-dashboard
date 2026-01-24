@@ -46,7 +46,7 @@ describe("useCreateService", () => {
 
   it("creates service successfully", async () => {
     const mockServiceData = {
-      title: "New Service",
+      name: "New Service",
       description: "New description",
       short_description: "Short desc",
       show_home: true,
@@ -82,7 +82,7 @@ describe("useCreateService", () => {
 
   it("handles creation error", async () => {
     const mockServiceData = {
-      title: "New Service",
+      name: "New Service",
       description: "New description",
       short_description: "Short desc",
       show_home: true,
@@ -118,7 +118,7 @@ describe("useCreateService", () => {
     const invalidateQueriesSpy = jest.spyOn(queryClient, "invalidateQueries");
 
     const mockServiceData = {
-      title: "New Service",
+      name: "New Service",
       description: "New description",
       short_description: "Short desc",
       show_home: true,
@@ -151,7 +151,7 @@ describe("useCreateService", () => {
 
   it("calls onSuccess callback when provided", async () => {
     const mockServiceData = {
-      title: "New Service",
+      name: "New Service",
       description: "New description",
       short_description: "Short desc",
       show_home: true,
@@ -180,7 +180,7 @@ describe("useCreateService", () => {
 
   it("calls onError callback when provided", async () => {
     const mockServiceData = {
-      title: "New Service",
+      name: "New Service",
       description: "New description",
       short_description: "Short desc",
       show_home: true,
@@ -216,7 +216,7 @@ describe("useCreateService", () => {
 
   it("maintains loading state during creation", async () => {
     const mockServiceData = {
-      title: "New Service",
+      name: "New Service",
       description: "New description",
       short_description: "Short desc",
       show_home: true,

@@ -12,7 +12,7 @@ export async function getServices() {
 }
 
 export async function createService(newService: {
-  title: string;
+  name: string;
   description: string;
   short_description?: string;
   show_home?: boolean;
@@ -22,7 +22,7 @@ export async function createService(newService: {
     .from("services")
     .insert([
       {
-        title: newService.title,
+        name: newService.name,
         description: newService.description,
         short_description: newService.short_description,
         show_home: newService.show_home,
@@ -72,7 +72,7 @@ export async function createService(newService: {
 
 export async function updateService(
   newService: {
-    title: string;
+    name: string;
     description: string;
     short_description?: string;
     show_home?: boolean;
@@ -119,7 +119,7 @@ export async function updateService(
   }
 
   const serviceData = {
-    title: newService.title,
+    name: newService.name,
     description: newService.description,
     short_description: newService.short_description,
     show_home: newService.show_home,

@@ -50,6 +50,14 @@ const GlobalStyles = createGlobalStyle`
     --color-red-100: #fee2e2;
     --color-red-700: #b91c1c;
     --color-red-800: #991b1b;
+    
+    --color-blue-100: #dbeafe;
+    --color-blue-700: #1447e6;
+    --color-blue-800: #193cb8;
+    
+    --color-slate-100: #e2e8f0;
+    --color-slate-700: #314158;
+    --color-slate-800: #0f172b;
 
     --shadow-sm: 0 0 4px 0.5px rgba(115, 115, 115, 0.1);
     --shadow-md: 0 0 0.6rem 2.4rem rgba(115, 115, 115, 0.3);

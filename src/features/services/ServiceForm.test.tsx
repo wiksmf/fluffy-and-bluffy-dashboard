@@ -60,7 +60,7 @@ describe("ServiceForm", () => {
   it("renders form fields for creating new service", () => {
     render(<ServiceForm />, { wrapper: createWrapper() });
 
-    expect(screen.getByLabelText("Title")).toBeInTheDocument();
+    expect(screen.getByLabelText("name")).toBeInTheDocument();
     expect(screen.getByLabelText("Description")).toBeInTheDocument();
     expect(screen.getByLabelText("Short description")).toBeInTheDocument();
     expect(screen.getByLabelText("Show on home page")).toBeInTheDocument();
@@ -74,7 +74,7 @@ describe("ServiceForm", () => {
   it("renders form fields for editing existing service", () => {
     const serviceToEdit = {
       id: 1,
-      title: "Test Service",
+      name: "Test Service",
       description: "Test Description",
       short_description: "Short desc",
       show_home: true,
@@ -102,7 +102,7 @@ describe("ServiceForm", () => {
     await user.click(submitButton);
 
     await waitFor(() => {
-      expect(screen.getByText("Title is required")).toBeInTheDocument();
+      expect(screen.getByText("name is required")).toBeInTheDocument();
       expect(screen.getByText("Description is required")).toBeInTheDocument();
       expect(screen.getByText("This field is required")).toBeInTheDocument();
     });
@@ -112,7 +112,7 @@ describe("ServiceForm", () => {
     const user = userEvent.setup();
     render(<ServiceForm />, { wrapper: createWrapper() });
 
-    const titleInput = screen.getByLabelText("Title");
+    const titleInput = screen.getByLabelText("name");
     const descriptionInput = screen.getByLabelText("Description");
 
     await user.type(titleInput, "abc"); // Less than 5 characters
@@ -123,7 +123,7 @@ describe("ServiceForm", () => {
 
     await waitFor(() => {
       expect(
-        screen.getByText("Title must be at least 5 characters")
+        screen.getByText("name must be at least 5 characters")
       ).toBeInTheDocument();
       expect(
         screen.getByText("Description must be at least 10 characters")
@@ -135,7 +135,7 @@ describe("ServiceForm", () => {
     const user = userEvent.setup();
     render(<ServiceForm />, { wrapper: createWrapper() });
 
-    await user.type(screen.getByLabelText("Title"), "New Service");
+    await user.type(screen.getByLabelText("name"), "New Service");
     await user.type(
       screen.getByLabelText("Description"),
       "New Description for service"
@@ -157,7 +157,7 @@ describe("ServiceForm", () => {
     await waitFor(() => {
       expect(mockCreateService).toHaveBeenCalledWith(
         expect.objectContaining({
-          title: "New Service",
+          name: "New Service",
           description: "New Description for service",
           short_description: "Short description",
           show_home: true,
@@ -170,7 +170,7 @@ describe("ServiceForm", () => {
   it("calls editService with form data when editing existing service", async () => {
     const serviceToEdit = {
       id: 1,
-      title: "Existing Service",
+      name: "Existing Service",
       description: "Existing Description",
       short_description: "Existing short desc",
       show_home: false,
@@ -193,7 +193,7 @@ describe("ServiceForm", () => {
       expect(mockEditService).toHaveBeenCalledWith(
         {
           serviceData: expect.objectContaining({
-            title: "Updated Service",
+            name: "Updated Service",
             description: "Existing Description",
             short_description: "Existing short desc",
             show_home: false,
@@ -209,7 +209,7 @@ describe("ServiceForm", () => {
   it("handles file upload when editing service", async () => {
     const serviceToEdit = {
       id: 1,
-      title: "Existing Service",
+      name: "Existing Service",
       description: "Existing Description",
       short_description: "Short desc",
       show_home: true,
@@ -263,7 +263,7 @@ describe("ServiceForm", () => {
 
     render(<ServiceForm />, { wrapper: createWrapper() });
 
-    expect(screen.getByLabelText("Title")).toBeDisabled();
+    expect(screen.getByLabelText("name")).toBeDisabled();
     expect(screen.getByLabelText("Description")).toBeDisabled();
     expect(screen.getByLabelText("Short description")).toBeDisabled();
     expect(screen.getByLabelText("Show on home page")).toBeDisabled();
@@ -295,7 +295,7 @@ describe("ServiceForm", () => {
   it("does not require icon for editing existing service", async () => {
     const serviceToEdit = {
       id: 1,
-      title: "Existing Service",
+      name: "Existing Service",
       description: "Existing Description with enough characters",
       short_description: "Short desc",
       show_home: true,

@@ -12,7 +12,7 @@ import InputFile from "../../ui/InputFile";
 import InputCheckbox from "../../ui/InputCheckbox";
 
 type FormData = {
-  title: string;
+  name: string;
   description: string;
   short_description: string;
   show_home: boolean;
@@ -21,7 +21,7 @@ type FormData = {
 
 type ServiceToEdit = {
   id: number;
-  title: string;
+  name: string;
   description: string;
   short_description?: string;
   show_home?: boolean;
@@ -50,14 +50,14 @@ function ServiceForm({
   function onSubmit(data: FormData) {
     if (isEditMode && editId) {
       const updateData: {
-        title: string;
+        name: string;
         description: string;
         short_description: string;
         show_home: boolean;
         icon?: FileList;
         preserveExistingIcon?: boolean;
       } = {
-        title: data.title,
+        name: data.name,
         description: data.description,
         short_description: data.short_description,
         show_home: data.show_home,
@@ -100,16 +100,16 @@ function ServiceForm({
       onSubmit={handleSubmit(onSubmit, onError)}
       type={onCloseModal ? "modal" : "regular"}
     >
-      <FormRow id="title" label="Title" error={errors?.title?.message}>
+      <FormRow id="name" label="name" error={errors?.name?.message}>
         <Input
           type="text"
-          id="title"
+          id="name"
           disabled={isWorking}
-          {...register("title", {
-            required: "Title is required",
+          {...register("name", {
+            required: "name is required",
             minLength: {
               value: 5,
-              message: "Title must be at least 5 characters",
+              message: "name must be at least 5 characters",
             },
           })}
         />

@@ -46,7 +46,7 @@ describe("useUpdateService", () => {
 
   it("updates service successfully", async () => {
     const mockServiceData = {
-      title: "Updated Service",
+      name: "Updated Service",
       description: "Updated description",
       short_description: "Updated short desc",
       show_home: false,
@@ -78,7 +78,7 @@ describe("useUpdateService", () => {
 
   it("updates service with new icon", async () => {
     const mockServiceData = {
-      title: "Updated Service",
+      name: "Updated Service",
       description: "Updated description",
       short_description: "Updated short desc",
       show_home: true,
@@ -111,7 +111,7 @@ describe("useUpdateService", () => {
 
   it("handles update error", async () => {
     const mockServiceData = {
-      title: "Updated Service",
+      name: "Updated Service",
       description: "Updated description",
       short_description: "Updated short desc",
       show_home: false,
@@ -143,7 +143,7 @@ describe("useUpdateService", () => {
 
     const invalidateQueriesSpy = jest.spyOn(queryClient, "invalidateQueries");
     const mockServiceData = {
-      title: "Updated Service",
+      name: "Updated Service",
       description: "Updated description",
       short_description: "Updated short desc",
       show_home: true,
@@ -173,7 +173,7 @@ describe("useUpdateService", () => {
 
   it("calls onSuccess callback when provided", async () => {
     const mockServiceData = {
-      title: "Updated Service",
+      name: "Updated Service",
       description: "Updated description",
       short_description: "Updated short desc",
       show_home: false,
@@ -200,7 +200,7 @@ describe("useUpdateService", () => {
 
   it("calls onError callback when provided", async () => {
     const mockServiceData = {
-      title: "Updated Service",
+      name: "Updated Service",
       description: "Updated description",
       short_description: "Updated short desc",
       show_home: false,
@@ -234,7 +234,7 @@ describe("useUpdateService", () => {
 
   it("maintains loading state during update", async () => {
     const mockServiceData = {
-      title: "Updated Service",
+      name: "Updated Service",
       description: "Updated description",
       short_description: "Updated short desc",
       show_home: false,
@@ -268,7 +268,7 @@ describe("useUpdateService", () => {
 
   it("handles undefined optional fields", async () => {
     const mockServiceData = {
-      title: "Updated Service",
+      name: "Updated Service",
       description: "Updated description",
       // short_description and show_home are optional
     };

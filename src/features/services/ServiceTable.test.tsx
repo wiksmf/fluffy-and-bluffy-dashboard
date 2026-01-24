@@ -3,6 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { ThemeProvider } from "styled-components";
 import userEvent from "@testing-library/user-event";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { MemoryRouter } from "react-router-dom";
 import ServiceTable from "./ServiceTable";
 
 const mockTheme = {};
@@ -14,7 +15,7 @@ jest.mock("./useService", () => ({
     services: [
       {
         id: 1,
-        title: "Service 1",
+        name: "Service 1",
         description: "Description 1",
         short_description: "Short 1",
         show_home: true,
@@ -22,7 +23,7 @@ jest.mock("./useService", () => ({
       },
       {
         id: 2,
-        title: "Service 2",
+        name: "Service 2",
         description: "Description 2",
         short_description: "Short 2",
         show_home: false,
@@ -37,7 +38,7 @@ jest.mock("./ServiceRow", () => {
   return function MockServiceRow({ service }: { service: any }) {
     return (
       <div data-testid={`service-row-${service.id}`}>
-        {service.title} - {service.description}
+        {service.name} - {service.description}
       </div>
     );
   };
@@ -60,7 +61,9 @@ const createWrapper = () => {
 
   return ({ children }: { children: React.ReactNode }) => (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={mockTheme}>{children}</ThemeProvider>
+      <ThemeProvider theme={mockTheme}>
+        <MemoryRouter initialEntries={["/services"]}>{children}</MemoryRouter>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 };
@@ -75,7 +78,7 @@ describe("ServiceTable", () => {
       services: [
         {
           id: 1,
-          title: "Service 1",
+          name: "Service 1",
           description: "Description 1",
           short_description: "Short 1",
           show_home: true,
@@ -83,7 +86,7 @@ describe("ServiceTable", () => {
         },
         {
           id: 2,
-          title: "Service 2",
+          name: "Service 2",
           description: "Description 2",
           short_description: "Short 2",
           show_home: false,

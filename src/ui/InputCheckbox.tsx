@@ -33,7 +33,7 @@ const InputCheckbox = styled.input.attrs({ type: "checkbox" })`
   }
 
   &:focus {
-    outline: 2px solid var(--color-brand-200);
+    outline: 2px solid var(--color-grey-200);
     outline-offset: 2px;
   }
 `;

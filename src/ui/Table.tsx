@@ -46,6 +46,7 @@ const Footer = styled.footer`
   display: flex;
   justify-content: center;
   padding: 1.2rem;
+  border-top: 1px solid var(--color-grey-100);
 
   &:not(:has(*)) {
     display: none;

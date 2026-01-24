@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import { updateService as updateServicesApi } from "../../services/apiServices";
 
 type ServiceData = {
-  title: string;
+  name: string;
   description: string;
   short_description?: string;
   show_home?: boolean;

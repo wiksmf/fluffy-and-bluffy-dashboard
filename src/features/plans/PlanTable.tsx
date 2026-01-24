@@ -3,6 +3,7 @@ import { usePlans } from "./usePlans";
 import Spinner from "../../ui/Spinner";
 import PlanRow from "./PlanRow";
 import Table from "../../ui/Table";
+import Empty from "../../ui/Empty";
 
 type Plan = {
   id: number;
@@ -12,8 +13,11 @@ type Plan = {
 };
 
 function PlanTable() {
-  const { isLoading, plans } = usePlans();
-  if (isLoading) return <Spinner />;
+  const { isPending, plans } = usePlans();
+
+  if (isPending) return <Spinner />;
+
+  if (!plans || !plans.length) return <Empty resourceName="plans" />;
 
   return (
     <Table columns="0.5fr minmax(20rem, 1fr) 0.5fr 0.2fr">
@@ -21,6 +25,7 @@ function PlanTable() {
         <div>Name</div>
         <div>Description</div>
         <div>Price</div>
+        <div></div>
       </Table.Header>
 
       <Table.Body

@@ -21,7 +21,7 @@ jest.mock("./ServiceForm", () => {
   return function MockServiceForm({ serviceToEdit }: { serviceToEdit?: any }) {
     return (
       <div data-testid="service-form">
-        Service Form for {serviceToEdit?.title || "new service"}
+        Service Form for {serviceToEdit?.name || "new service"}
       </div>
     );
   };
@@ -109,7 +109,7 @@ const createWrapper = () => {
 
 const mockService = {
   id: 1,
-  title: "Test Service",
+  name: "Test Service",
   description: "This is a test service description",
   short_description: "Short description",
   show_home: true,
