@@ -15,6 +15,10 @@ const GlobalStyles = createGlobalStyle`
       --color-grey-800: #1e2939;
       --color-grey-900: #101828;
 
+      --color-primary: #0b676b;
+      --color-secondary: #c5dede;
+      --color-tertiary: #108e94;
+    
       --backdrop-color: rgba(108, 108, 108, 0.5);
 
       --image-grayscale: 0;
@@ -33,16 +37,16 @@ const GlobalStyles = createGlobalStyle`
       --color-grey-800: #f3f4f6;
       --color-grey-900: #f9fafb;
 
+      --color-primary:#7fd4d8;
+      --color-secondary:rgb(207, 234, 234);
+      --color-tertiary:#79b6b9;
+
       --backdrop-color: rgba(0, 0, 0, 0.3);
 
       --image-grayscale: 10%;
       --image-opacity: 90%;
     }
 
-    --color-primary: #0b676b;
-    --color-secondary: #c5dede;
-    --color-tertiary: #108e94;
-    
     --color-green-100: #dcfce7;
     --color-green-700: #008236;
     --color-green-800: #016630;
