@@ -1,6 +1,6 @@
 import { renderHook, waitFor } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import React, { ReactNode } from "react";
+import React, { type ReactNode } from "react";
 import { useDeleteService } from "./useDeleteService";
 import toast from "react-hot-toast";
 
@@ -161,9 +161,7 @@ describe("useDeleteService", () => {
 
   it("maintains loading state during deletion", async () => {
     // Create a promise that resolves after a delay
-    let resolvePromise: (value: any) => void;
     const pendingPromise = new Promise((resolve) => {
-      resolvePromise = resolve;
       setTimeout(() => resolve(undefined), 10);
     });
 

@@ -38,7 +38,7 @@ function ConfirmBooking() {
 
   if (isLoading) return <Spinner />;
 
-  const { id: bookingId, first_name, last_name } = booking || {};
+  const { id: bookingId } = booking || {};
 
   function handleConfirm() {
     const amount = parseFloat(paidAmount);

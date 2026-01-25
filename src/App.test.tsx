@@ -1,5 +1,3 @@
-import { render } from "@testing-library/react";
-
 // Simple test that doesn't require full App rendering
 describe("App", () => {
   it("renders without crashing", () => {

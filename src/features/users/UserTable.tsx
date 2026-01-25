@@ -8,17 +8,6 @@ import Table from "../../ui/Table";
 import Empty from "../../ui/Empty";
 import Menus from "../../ui/Menus";
 
-type SupabaseUser = {
-  id: string;
-  email?: string;
-  user_metadata: {
-    fullName?: string;
-    isAdmin?: boolean;
-    avatar?: string;
-  };
-  created_at: string;
-};
-
 function UserTable() {
   const { isPending, users } = useUsers();
   const { isAdmin } = useUser();
@@ -40,7 +29,7 @@ function UserTable() {
 
         <Table.Body
           data={users || []}
-          render={(user: SupabaseUser) => (
+          render={(user: any) => (
             <UserRow user={user} key={user.id} canModify={isAdmin} />
           )}
         />

@@ -71,8 +71,8 @@ function ServiceRow({ service }: { service: ServiceProps }) {
 
         <Modal>
           <Menus.Menu>
-            <Menus.Toggle id={serviceId} />
-            <Menus.List id={serviceId}>
+            <Menus.Toggle id={serviceId.toString()} />
+            <Menus.List id={serviceId.toString()}>
               <Modal.Open opens="update">
                 <Menus.Button icon={<HiOutlinePencil />}>
                   Edit service

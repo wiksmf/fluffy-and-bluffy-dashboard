@@ -8,7 +8,6 @@ import PlanForm from "./PlanForm";
 import Modal from "../../ui/Modal";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import Table from "../../ui/Table";
-import ButtonIcon from "../../ui/ButtonIcon";
 import Menus from "../../ui/Menus";
 
 type PlanProps = {
@@ -46,8 +45,8 @@ function PlanRow({ plan }: { plan: PlanProps }) {
 
         <Modal>
           <Menus.Menu>
-            <Menus.Toggle id={planId} />
-            <Menus.List id={planId}>
+            <Menus.Toggle id={planId.toString()} />
+            <Menus.List id={planId.toString()}>
               <Modal.Open opens="update">
                 <Menus.Button icon={<HiOutlinePencil />}>
                   Edit plan

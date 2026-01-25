@@ -9,7 +9,6 @@ import type { User } from "../../services/apiUsers";
 import Modal from "../../ui/Modal";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import Table from "../../ui/Table";
-import ButtonIcon from "../../ui/ButtonIcon";
 import AvatarPlaceholder from "../../ui/AvatarPlaceholder";
 import Avatar from "../../ui/Avatar";
 import Menus from "../../ui/Menus";

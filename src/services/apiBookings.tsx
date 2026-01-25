@@ -28,7 +28,14 @@ export async function getBookings({ filter, sortBy, page }: GetBookingsParams) {
     );
 
   // FILTER
-  if (filter) query = query[filter.method || "eq"](filter.field, filter.value);
+  if (filter) {
+    const method = filter.method || "eq";
+    if (method === "eq") query = query.eq(filter.field, filter.value);
+    else if (method === "gte") query = query.gte(filter.field, filter.value);
+    else if (method === "lte") query = query.lte(filter.field, filter.value);
+    else if (method === "gt") query = query.gt(filter.field, filter.value);
+    else if (method === "lt") query = query.lt(filter.field, filter.value);
+  }
 
   // SORT
   if (sortBy)
@@ -106,6 +113,21 @@ export async function getBookingsAfterDate(date: string) {
   if (error) {
     console.error(error);
     throw new Error("Bookings could not be loaded");
+  }
+
+  return data;
+}
+
+export async function getStaysAfterDate(date: string) {
+  const { data, error } = await supabase
+    .from("bookings")
+    .select("*")
+    .gte("date", date)
+    .order("date");
+
+  if (error) {
+    console.error(error);
+    throw new Error("Stays could not be loaded");
   }
 
   return data;

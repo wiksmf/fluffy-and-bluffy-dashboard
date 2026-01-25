@@ -99,8 +99,8 @@ function BookingRow({
 
       <Modal>
         <Menus.Menu>
-          <Menus.Toggle id={bookingId} />
-          <Menus.List id={bookingId}>
+          <Menus.Toggle id={bookingId.toString()} />
+          <Menus.List id={bookingId.toString()}>
             <Menus.Button
               icon={<HiOutlineEye />}
               onClick={() => navigate(`/booking/${bookingId}`)}

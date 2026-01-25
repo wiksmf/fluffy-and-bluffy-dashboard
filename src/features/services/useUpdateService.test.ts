@@ -1,6 +1,6 @@
 import { renderHook, waitFor } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import React, { ReactNode } from "react";
+import React, { type ReactNode } from "react";
 import { useUpdateService } from "./useUpdateService";
 import toast from "react-hot-toast";
 
@@ -241,9 +241,7 @@ describe("useUpdateService", () => {
     };
 
     // Create a promise that resolves after a delay
-    let resolvePromise: (value: any) => void;
     const pendingPromise = new Promise((resolve) => {
-      resolvePromise = resolve;
       setTimeout(() => resolve({ id: 1, ...mockServiceData }), 10);
     });
 

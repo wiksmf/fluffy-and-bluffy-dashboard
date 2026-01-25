@@ -4,10 +4,7 @@ import Row from "../../ui/Row";
 import { format, isToday, parse } from "date-fns";
 import Tag from "../../ui/Tag";
 import { NavLink } from "react-router-dom";
-import {
-  HiOutlineArrowSmallRight,
-  HiOutlineCalendarDays,
-} from "react-icons/hi2";
+import { HiOutlineArrowSmallRight } from "react-icons/hi2";
 
 const StyledToday = styled.div`
   grid-column: 1 / span 2;
