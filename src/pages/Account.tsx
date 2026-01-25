@@ -9,19 +9,19 @@ import ButtonText from "../ui/ButtonText";
 import Heading from "../ui/Heading";
 import Row from "../ui/Row";
 import Spinner from "../ui/Spinner";
+import Empty from "../ui/Empty";
 
 function Account() {
   const navigate = useNavigate();
   const { userId } = useParams();
-  const { user: currentUser } = useUser(); // Current authenticated user
+  const { user: currentUser } = useUser();
 
-  // If no userId in URL, use current user's ID
   const targetUserId = userId || currentUser?.id;
 
-  // Fetch the user data for the target user
   const { user: targetUser, isLoading } = useUser(targetUserId);
 
-  // Determine if current user can edit this account
+  if (!targetUser) return <Empty resourceName="user" />;
+
   const canEdit =
     currentUser?.user_metadata?.isAdmin || currentUser?.id === targetUserId;
 
@@ -31,7 +31,7 @@ function Account() {
     return (
       <Row>
         <Heading as="h1">Access Denied</Heading>
-        <p>You don't have permission to edit this account.</p>
+        <p>You don&apos;t have permission to edit this account.</p>
       </Row>
     );
   }

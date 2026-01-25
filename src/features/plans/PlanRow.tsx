@@ -9,6 +9,7 @@ import Modal from "../../ui/Modal";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import Table from "../../ui/Table";
 import ButtonIcon from "../../ui/ButtonIcon";
+import Menus from "../../ui/Menus";
 
 type PlanProps = {
   id: number;
@@ -31,12 +32,6 @@ const Price = styled.div`
   font-weight: 600;
 `;
 
-const OpRow = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-`;
-
 function PlanRow({ plan }: { plan: PlanProps }) {
   const { id: planId, name, description, price } = plan;
 
@@ -49,32 +44,36 @@ function PlanRow({ plan }: { plan: PlanProps }) {
         <Description>{description}</Description>
         <Price>{formatCurrency(price)}</Price>
 
-        <OpRow>
-          <Modal>
-            <Modal.Open opens="update">
-              <ButtonIcon disabled={isDeleting} aria-label="Edit plan">
-                <HiOutlinePencil />
-              </ButtonIcon>
-            </Modal.Open>
-            <Modal.Window name="update">
-              <PlanForm planToEdit={plan} />
-            </Modal.Window>
+        <Modal>
+          <Menus.Menu>
+            <Menus.Toggle id={planId} />
+            <Menus.List id={planId}>
+              <Modal.Open opens="update">
+                <Menus.Button icon={<HiOutlinePencil />}>
+                  Edit plan
+                </Menus.Button>
+              </Modal.Open>
 
-            <Modal.Open opens="delete">
-              <ButtonIcon aria-label="Delete plan">
-                <HiOutlineTrash />
-              </ButtonIcon>
-            </Modal.Open>
+              <Modal.Open opens="delete">
+                <Menus.Button icon={<HiOutlineTrash />}>
+                  Delete plan
+                </Menus.Button>
+              </Modal.Open>
+            </Menus.List>
+          </Menus.Menu>
 
-            <Modal.Window name="delete">
-              <ConfirmDelete
-                resourceName="plans"
-                onConfirm={() => deletePlan(planId)}
-                disabled={isDeleting}
-              />
-            </Modal.Window>
-          </Modal>
-        </OpRow>
+          <Modal.Window name="update">
+            <PlanForm planToEdit={plan} />
+          </Modal.Window>
+
+          <Modal.Window name="delete">
+            <ConfirmDelete
+              resourceName="plans"
+              onConfirm={() => deletePlan(planId)}
+              disabled={isDeleting}
+            />
+          </Modal.Window>
+        </Modal>
       </Table.Row>
     </>
   );

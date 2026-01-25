@@ -38,8 +38,8 @@ const GlobalStyles = createGlobalStyle`
       --color-grey-900: #f9fafb;
 
       --color-primary:#7fd4d8;
-      --color-secondary:rgb(207, 234, 234);
-      --color-tertiary:#79b6b9;
+      --color-secondary:#79b6b9;
+      --color-tertiary:#49adad;
 
       --backdrop-color: rgba(0, 0, 0, 0.3);
 

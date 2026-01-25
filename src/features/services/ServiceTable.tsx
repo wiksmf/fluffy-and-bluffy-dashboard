@@ -5,6 +5,7 @@ import Spinner from "../../ui/Spinner";
 import ServiceRow from "./ServiceRow";
 import Table from "../../ui/Table";
 import Empty from "../../ui/Empty";
+import Menus from "../../ui/Menus";
 
 type Service = {
   id: number;
@@ -44,23 +45,25 @@ function ServiceTable() {
   });
 
   return (
-    <Table columns="8rem 17rem 35rem 20rem 15rem 5rem">
-      <Table.Header>
-        <div>Icon</div>
-        <div>Name</div>
-        <div>Description</div>
-        <div>Short Description</div>
-        <div>Displayed on homepage</div>
-        <div></div>
-      </Table.Header>
+    <Menus>
+      <Table columns="8rem 17rem 35rem 20rem 15rem 1fr">
+        <Table.Header>
+          <div>Icon</div>
+          <div>Name</div>
+          <div>Description</div>
+          <div>Short Description</div>
+          <div>Displayed on homepage</div>
+          <div></div>
+        </Table.Header>
 
-      <Table.Body
-        data={sortedServices || []}
-        render={(service: Service) => (
-          <ServiceRow service={service} key={service.id} />
-        )}
-      />
-    </Table>
+        <Table.Body
+          data={sortedServices || []}
+          render={(service: Service) => (
+            <ServiceRow service={service} key={service.id} />
+          )}
+        />
+      </Table>
+    </Menus>
   );
 }
 

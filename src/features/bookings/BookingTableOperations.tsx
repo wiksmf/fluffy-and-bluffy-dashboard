@@ -17,6 +17,7 @@ function BookingTableOperations() {
 
       <SortBy
         options={[
+          { value: "created_at-asc", label: "Sort by booking date" },
           { value: "date-asc", label: "Sort by date (earlier bookings)" },
           { value: "date-desc", label: "Sort by date (last bookings)" },
           { value: "hour-asc", label: "Sort by hour (ascending)" },

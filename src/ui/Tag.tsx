@@ -5,17 +5,16 @@ interface TagProps {
 }
 
 const Tag = styled.span<TagProps>`
-  width: fit-content;
-  text-transform: uppercase;
+  width: 100%;
   font-size: 1.1rem;
-  line-height: 1;
   font-weight: 600;
+  line-height: 1;
   padding: 0.8rem 1.2rem;
   border-radius: 100px;
-
-  /* Make these dynamic, based on the received prop */
   color: var(--color-${(props) => props.type}-700);
   background-color: var(--color-${(props) => props.type}-100);
+  text-align: center;
+  text-transform: uppercase;
 `;
 
 export default Tag;

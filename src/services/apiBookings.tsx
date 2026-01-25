@@ -95,3 +95,18 @@ export async function deleteBooking(id: number | string) {
 
   return null;
 }
+
+export async function getBookingsAfterDate(date: string) {
+  const { data, error } = await supabase
+    .from("bookings")
+    .select("*")
+    .gte("date", date)
+    .order("date");
+
+  if (error) {
+    console.error(error);
+    throw new Error("Bookings could not be loaded");
+  }
+
+  return data;
+}

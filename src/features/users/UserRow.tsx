@@ -12,6 +12,7 @@ import Table from "../../ui/Table";
 import ButtonIcon from "../../ui/ButtonIcon";
 import AvatarPlaceholder from "../../ui/AvatarPlaceholder";
 import Avatar from "../../ui/Avatar";
+import Menus from "../../ui/Menus";
 
 const UserName = styled.div`
   font-size: 1.4rem;
@@ -26,12 +27,6 @@ const UserEmail = styled.div`
 const UserRole = styled.div`
   font-size: 1.4rem;
   font-weight: 600;
-`;
-
-const OpRow = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
 `;
 
 function UserRow({ user, canModify }: { user: User; canModify: boolean }) {
@@ -60,31 +55,49 @@ function UserRow({ user, canModify }: { user: User; canModify: boolean }) {
       <UserEmail>{email || "No email"}</UserEmail>
       <UserRole>{isAdmin ? "Yes" : "No"}</UserRole>
 
-      <OpRow>
-        {(isCurrentUser || canModify) && !isAdmin && (
-          <ButtonIcon onClick={() => navigate(`/account/${userId}`)}>
-            <HiOutlinePencil />
-          </ButtonIcon>
-        )}
+      {isCurrentUser && !isAdmin && (
+        <Menus.Menu>
+          <Menus.Toggle id={userId} />
+          <Menus.List id={userId}>
+            <Menus.Button
+              icon={<HiOutlinePencil />}
+              onClick={() => navigate(`/account/${userId}`)}
+            >
+              Update user
+            </Menus.Button>
+          </Menus.List>
+        </Menus.Menu>
+      )}
 
-        {canModify && !isAdmin && (
-          <Modal>
-            <Modal.Open opens="delete">
-              <ButtonIcon aria-label="Delete user">
-                <HiOutlineTrash />
-              </ButtonIcon>
-            </Modal.Open>
+      {canModify && !isAdmin && (
+        <Modal>
+          <Menus.Menu>
+            <Menus.Toggle id={userId} />
+            <Menus.List id={userId}>
+              <Menus.Button
+                icon={<HiOutlinePencil />}
+                onClick={() => navigate(`/account/${userId}`)}
+              >
+                Update user
+              </Menus.Button>
 
-            <Modal.Window name="delete">
-              <ConfirmDelete
-                resourceName="users"
-                onConfirm={() => deleteUser(userId)}
-                disabled={isDeleting}
-              />
-            </Modal.Window>
-          </Modal>
-        )}
-      </OpRow>
+              <Modal.Open opens="delete">
+                <Menus.Button icon={<HiOutlineTrash />}>
+                  Delete user
+                </Menus.Button>
+              </Modal.Open>
+            </Menus.List>
+          </Menus.Menu>
+
+          <Modal.Window name="delete">
+            <ConfirmDelete
+              resourceName="users"
+              onConfirm={() => deleteUser(userId)}
+              disabled={isDeleting}
+            />
+          </Modal.Window>
+        </Modal>
+      )}
     </Table.Row>
   );
 }

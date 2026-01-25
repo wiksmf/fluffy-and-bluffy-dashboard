@@ -16,7 +16,7 @@ export function useBookings() {
       : { field: "status", value: filterValue };
 
   // SORT
-  const sortByRaw = searchParams.get("sort-by") || "date-asc";
+  const sortByRaw = searchParams.get("sort-by") || "created_at-asc";
   const [field, direction] = sortByRaw.split("-");
   const sortBy = { field, direction: direction as "asc" | "desc" };
 

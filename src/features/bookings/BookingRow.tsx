@@ -9,13 +9,13 @@ import {
 } from "react-icons/hi2";
 
 import { useDeleteBooking } from "./useDeleteBooking";
+import { useConfirm } from "../confirm/useConfirm";
 
 import Tag from "../../ui/Tag";
 import Table from "../../ui/Table";
 import Modal from "../../ui/Modal";
 import Menus from "../../ui/Menus";
 import ConfirmDelete from "../../ui/ConfirmDelete";
-import { useConfirm } from "../confirm/useConfirm";
 
 const Service = styled.div`
   font-size: 1.4rem;

@@ -7,7 +7,7 @@ const StyledTable = styled.div`
   font-size: 1.4rem;
   background-color: var(--color-grey-50);
   border-radius: var(--border-radius-md);
-  overflow: hidden;
+  overflow: visible;
 `;
 
 const CommonRow = styled.div<StyledRowProps>`
@@ -20,13 +20,14 @@ const CommonRow = styled.div<StyledRowProps>`
 
 const StyledHeader = styled(CommonRow)`
   padding: 1.6rem 2.4rem;
-
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  color: var(--color-grey-600);
   background-color: var(--color-grey-50);
+  border-top-left-radius: var(--border-radius-md);
+  border-top-right-radius: var(--border-radius-md);
   border-bottom: 1px solid var(--color-grey-100);
   text-transform: uppercase;
-  letter-spacing: 0.4px;
-  font-weight: 600;
-  color: var(--color-grey-600);
 `;
 
 const StyledRow = styled(CommonRow)`

@@ -100,7 +100,7 @@ function ServiceForm({
       onSubmit={handleSubmit(onSubmit, onError)}
       type={onCloseModal ? "modal" : "regular"}
     >
-      <FormRow id="name" label="name" error={errors?.name?.message}>
+      <FormRow id="name" label="Name" error={errors?.name?.message}>
         <Input
           type="text"
           id="name"

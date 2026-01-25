@@ -7,6 +7,7 @@ import ServiceForm from "./ServiceForm";
 import Modal from "../../ui/Modal";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import Table from "../../ui/Table";
+import Menus from "../../ui/Menus";
 
 type ServiceProps = {
   id: number;
@@ -46,42 +47,6 @@ const Img = styled.img`
   object-position: center;
 `;
 
-const OpRow = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-`;
-
-const StyledButton = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 4rem;
-  height: 4rem;
-  text-align: left;
-  background: none;
-  border: none;
-  border-radius: 100%;
-  padding: 1rem;
-  background-color: var(--color-grey-100);
-  transition: all 0.3s;
-
-  & svg {
-    width: 1.7rem;
-    height: 1.7rem;
-    color: var(--color-grey-600);
-    transition: all 0.3s;
-  }
-
-  &:hover {
-    background-color: var(--color-primary);
-  }
-
-  &:hover svg {
-    color: var(--color-grey-50);
-  }
-`;
-
 function ServiceRow({ service }: { service: ServiceProps }) {
   const {
     id: serviceId,
@@ -104,32 +69,36 @@ function ServiceRow({ service }: { service: ServiceProps }) {
           {show_home ? "Yes" : "No"}
         </ShowHome>
 
-        <OpRow>
-          <Modal>
-            <Modal.Open opens="update">
-              <StyledButton disabled={isDeleting} aria-label="Edit service">
-                <HiOutlinePencil />
-              </StyledButton>
-            </Modal.Open>
-            <Modal.Window name="update">
-              <ServiceForm serviceToEdit={service} />
-            </Modal.Window>
+        <Modal>
+          <Menus.Menu>
+            <Menus.Toggle id={serviceId} />
+            <Menus.List id={serviceId}>
+              <Modal.Open opens="update">
+                <Menus.Button icon={<HiOutlinePencil />}>
+                  Edit service
+                </Menus.Button>
+              </Modal.Open>
 
-            <Modal.Open opens="delete">
-              <StyledButton aria-label="Delete service">
-                <HiOutlineTrash />
-              </StyledButton>
-            </Modal.Open>
+              <Modal.Open opens="delete">
+                <Menus.Button icon={<HiOutlineTrash />}>
+                  Delete service
+                </Menus.Button>
+              </Modal.Open>
+            </Menus.List>
+          </Menus.Menu>
 
-            <Modal.Window name="delete">
-              <ConfirmDelete
-                resourceName="services"
-                onConfirm={() => deleteService(serviceId)}
-                disabled={isDeleting}
-              />
-            </Modal.Window>
-          </Modal>
-        </OpRow>
+          <Modal.Window name="update">
+            <ServiceForm serviceToEdit={service} />
+          </Modal.Window>
+
+          <Modal.Window name="delete">
+            <ConfirmDelete
+              resourceName="services"
+              onConfirm={() => deleteService(serviceId)}
+              disabled={isDeleting}
+            />
+          </Modal.Window>
+        </Modal>
       </Table.Row>
     </>
   );
