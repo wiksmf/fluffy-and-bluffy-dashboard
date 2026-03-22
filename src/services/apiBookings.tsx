@@ -38,10 +38,17 @@ export async function getBookings({ filter, sortBy, page }: GetBookingsParams) {
   }
 
   // SORT
-  if (sortBy)
+  if (sortBy) {
     query = query.order(sortBy.field, {
       ascending: sortBy.direction === "asc",
     });
+
+    if (sortBy.field === "date") {
+      query = query.order("hour", {
+        ascending: sortBy.direction === "asc",
+      });
+    }
+  }
 
   if (page) {
     const from = (page - 1) * PAGE_SIZE;

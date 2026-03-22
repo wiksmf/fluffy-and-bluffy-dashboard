@@ -9,10 +9,14 @@ function BookingTableOperations() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
-    if (!searchParams.get("status")) {
+    const hasStatus = searchParams.get("status");
+    const hasSortBy = searchParams.get("sort-by");
+
+    if (!hasStatus || !hasSortBy) {
       const newParams = new URLSearchParams(searchParams.toString());
-      newParams.set("status", "confirmed");
-      if (newParams.get("page")) newParams.set("page", "1");
+
+      if (!hasStatus) newParams.set("status", "confirmed");
+      if (!hasSortBy) newParams.set("sort-by", "date-asc");
       setSearchParams(newParams);
     }
   }, [searchParams, setSearchParams]);
