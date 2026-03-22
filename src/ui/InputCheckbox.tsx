@@ -22,7 +22,7 @@ const InputCheckbox = styled.input.attrs({ type: "checkbox" })`
 
     &::after {
       content: "✓";
-      color: white;
+      color: var(--color-grey-50);
       font-size: 1.6rem;
       font-weight: bold;
     }

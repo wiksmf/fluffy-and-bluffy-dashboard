@@ -1,6 +1,10 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-const StyledFormRow = styled.div`
+interface StyledFormRowProps {
+  type?: "form";
+}
+
+const StyledFormRow = styled.div<StyledFormRowProps>`
   display: grid;
   align-items: center;
   grid-template-columns: 20rem 1fr 0.5fr;
@@ -24,6 +28,12 @@ const StyledFormRow = styled.div`
     justify-content: flex-end;
     gap: 1.2rem;
   }
+
+  ${(props) =>
+    props.type === "form" &&
+    css`
+      padding: 1.2rem 2.4rem;
+    `}
 `;
 
 const Label = styled.label`
@@ -39,12 +49,13 @@ type FormRowProps = {
   id?: string;
   label?: string;
   error?: string;
+  type?: "form";
   children?: React.ReactNode;
 };
 
-function FormRow({ id, label, error, children }: FormRowProps) {
+function FormRow({ id, label, error, type, children }: FormRowProps) {
   return (
-    <StyledFormRow>
+    <StyledFormRow type={type}>
       {label && <Label htmlFor={id}>{label}</Label>}
       {children}
       {error && <Error>{error}</Error>}

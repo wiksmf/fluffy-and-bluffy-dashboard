@@ -90,7 +90,7 @@ function UserUpdateUserDataForm({ userId }: UserUpdateUserDataFormProps) {
           disabled={isUpdating}
           onClick={handleCancel}
         >
-          Cancel
+          Undo
         </Button>
         <Button disabled={isUpdating}>Update account</Button>
       </FormRow>

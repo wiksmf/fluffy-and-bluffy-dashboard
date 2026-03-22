@@ -73,7 +73,7 @@ function UserUpdatePasswordForm({ userId }: UserUpdatePasswordFormProps) {
 
       <FormRow>
         <Button onClick={() => reset()} type="reset" variation="secondary">
-          Cancel
+          Undo
         </Button>
         <Button disabled={isUpdating}>Update password</Button>
       </FormRow>

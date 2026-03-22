@@ -96,7 +96,7 @@ describe("UpdateSettingsForm", () => {
     expect(screen.getByDisplayValue("123 Main St")).toBeInTheDocument();
   });
 
-  it("calls updateContact when phone field loses focus with new value", async () => {
+  it("calls updateContact with edited values when save is clicked", async () => {
     const mockUpdateContact = jest.fn();
     useUpdateContact.mockReturnValue({
       isUpdating: false,
@@ -107,56 +107,25 @@ describe("UpdateSettingsForm", () => {
     render(<UpdateSettingsForm />, { wrapper: createWrapper() });
 
     const phoneInput = screen.getByDisplayValue("123-456-7890");
+    const emailInput = screen.getByDisplayValue("test@example.com");
+    const addressInput = screen.getByDisplayValue("123 Main St");
+
     await user.clear(phoneInput);
     await user.type(phoneInput, "555-123-4567");
-    await user.tab();
+    await user.clear(emailInput);
+    await user.type(emailInput, "newemail@example.com");
+    await user.clear(addressInput);
+    await user.type(addressInput, "456 New Street");
+    await user.click(screen.getByRole("button", { name: "Save" }));
 
     expect(mockUpdateContact).toHaveBeenCalledWith({
       phone: "555-123-4567",
-    });
-  });
-
-  it("calls updateContact when email field loses focus with new value", async () => {
-    const mockUpdateContact = jest.fn();
-    useUpdateContact.mockReturnValue({
-      isUpdating: false,
-      updateContact: mockUpdateContact,
-    });
-
-    const user = userEvent.setup();
-    render(<UpdateSettingsForm />, { wrapper: createWrapper() });
-
-    const emailInput = screen.getByDisplayValue("test@example.com");
-    await user.clear(emailInput);
-    await user.type(emailInput, "newemail@example.com");
-    await user.tab();
-
-    expect(mockUpdateContact).toHaveBeenCalledWith({
       email: "newemail@example.com",
-    });
-  });
-
-  it("calls updateContact when address field loses focus with new value", async () => {
-    const mockUpdateContact = jest.fn();
-    useUpdateContact.mockReturnValue({
-      isUpdating: false,
-      updateContact: mockUpdateContact,
-    });
-
-    const user = userEvent.setup();
-    render(<UpdateSettingsForm />, { wrapper: createWrapper() });
-
-    const addressInput = screen.getByDisplayValue("123 Main St");
-    await user.clear(addressInput);
-    await user.type(addressInput, "456 New Street");
-    await user.tab();
-
-    expect(mockUpdateContact).toHaveBeenCalledWith({
       address: "456 New Street",
     });
   });
 
-  it("does not call updateContact when field is cleared", async () => {
+  it("does not call updateContact while typing before save", async () => {
     const mockUpdateContact = jest.fn();
     useUpdateContact.mockReturnValue({
       isUpdating: false,
@@ -168,7 +137,6 @@ describe("UpdateSettingsForm", () => {
 
     const phoneInput = screen.getByDisplayValue("123-456-7890");
     await user.clear(phoneInput);
-    await user.tab();
 
     expect(mockUpdateContact).not.toHaveBeenCalled();
   });
@@ -199,7 +167,7 @@ describe("UpdateSettingsForm", () => {
     expect(inputs).toHaveLength(3); // Should have 3 inputs
   });
 
-  it("calls updateContact even when the same value is entered on blur", async () => {
+  it("restores original values when undo is clicked", async () => {
     const mockUpdateContact = jest.fn();
     useUpdateContact.mockReturnValue({
       isUpdating: false,
@@ -209,15 +177,17 @@ describe("UpdateSettingsForm", () => {
     const user = userEvent.setup();
     render(<UpdateSettingsForm />, { wrapper: createWrapper() });
 
-    // Click on input and blur without changing value
     const phoneInput = screen.getByDisplayValue("123-456-7890");
-    await user.click(phoneInput);
-    phoneInput.blur();
+    const emailInput = screen.getByDisplayValue("test@example.com");
 
-    // The component should call updateContact with the existing value
-    // This is the actual behavior - it triggers on blur regardless of value changes
-    expect(mockUpdateContact).toHaveBeenCalledWith({
-      phone: "123-456-7890",
-    });
+    await user.clear(phoneInput);
+    await user.type(phoneInput, "555-123-4567");
+    await user.clear(emailInput);
+    await user.type(emailInput, "newemail@example.com");
+    await user.click(screen.getByRole("button", { name: "Undo" }));
+
+    expect(screen.getByDisplayValue("123-456-7890")).toBeInTheDocument();
+    expect(screen.getByDisplayValue("test@example.com")).toBeInTheDocument();
+    expect(mockUpdateContact).not.toHaveBeenCalled();
   });
 });
