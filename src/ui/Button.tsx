@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 type ButtonProps = {
   size?: "small" | "medium" | "large";
   variation?: "primary" | "secondary" | "danger";
+  margin?: string;
 };
 
 const size = {
@@ -54,6 +55,7 @@ const Button = styled.button<ButtonProps>`
   box-shadow: var(--shadow-sm);
   width: fit-content;
   text-align: center;
+  margin: ${(props) => props.margin || "0"};
 
   ${(props) => size[props.size || "medium"]};
   ${(props) => variation[props.variation || "primary"]};

@@ -29,7 +29,7 @@ function LoginForm() {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <FormRowVertical label="E-mail address">
+      <FormRowVertical id="email" label="E-mail address">
         <Input
           type="email"
           id="email"
@@ -40,7 +40,7 @@ function LoginForm() {
         />
       </FormRowVertical>
 
-      <FormRowVertical label="Password">
+      <FormRowVertical id="password" label="Password">
         <Input
           type="password"
           id="password"
@@ -52,7 +52,7 @@ function LoginForm() {
       </FormRowVertical>
 
       <FormRowVertical>
-        <Button size="small" disabled={isPending}>
+        <Button size="small" margin="0 auto" disabled={isPending}>
           {!isPending ? "Log in" : <SpinnerMini />}
         </Button>
       </FormRowVertical>
