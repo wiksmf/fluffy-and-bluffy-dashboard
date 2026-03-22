@@ -86,8 +86,7 @@ function BookingsChart({ bookings, numDays }: BookingsChartProps) {
   return (
     <StyledBookingsChart>
       <Heading as="h2">
-        Booking trends from {format(allDates[0] || new Date(), "dd MMM yyyy")}{" "}
-        &mdash;{" "}
+        Booking trends from {format(allDates[0] || new Date(), "dd MMM yyyy")} -{" "}
         {format(allDates[allDates.length - 1] || new Date(), "dd MMM yyyy")}{" "}
       </Heading>
 

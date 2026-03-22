@@ -17,7 +17,7 @@ import Input from "../../ui/Input";
 import FormRow from "../../ui/FormRow";
 
 const Box = styled.div`
-  padding: 2rem 0;
+  padding: 2rem;
   border: 1px solid var(--color-grey-200);
   border-radius: var(--border-radius-md);
   background-color: var(--color-grey-50);

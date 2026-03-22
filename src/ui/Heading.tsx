@@ -7,6 +7,7 @@ const Heading = styled.h1`
   
 	font-weight: 700;
   color: var(--color-primary);
+  white-space: nowrap;
 `;
 
 export default Heading;

@@ -45,6 +45,14 @@ function BookingDetail() {
   const { deleteBooking, isDeleting } = useDeleteBooking();
   const navigate = useNavigate();
 
+  const goBack = () => {
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate("/bookings");
+    }
+  };
+
   if (isLoading) return <Spinner />;
   if (!booking) return <Empty resourceName="booking" />;
 
@@ -66,7 +74,7 @@ function BookingDetail() {
           </Tag>
         </HeadingGroup>
 
-        <ButtonText onClick={() => navigate("/bookings")}>
+        <ButtonText onClick={goBack}>
           <HiOutlineArrowSmallLeft /> Back
         </ButtonText>
       </Row>
@@ -102,7 +110,7 @@ function BookingDetail() {
           </Modal.Window>
         </Modal>
 
-        <Button variation="secondary" onClick={() => navigate("/bookings")}>
+        <Button variation="secondary" onClick={goBack}>
           Back
         </Button>
       </ButtonGroup>

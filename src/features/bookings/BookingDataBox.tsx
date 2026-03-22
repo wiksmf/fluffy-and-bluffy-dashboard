@@ -101,17 +101,14 @@ function BookingDataBox({ booking }: BookingDataBoxProps) {
           <p>
             {first_name} {last_name}
           </p>
-
-          <span>&bull;</span>
-
-          <p>{service}</p>
+          -<p>{service}</p>
         </div>
 
         <div>
           <p>
             {isToday(new Date(date))
               ? "Today"
-              : format(new Date(date), "EEE, MMM dd yyyy")}{" "}
+              : format(new Date(date), "EEE, dd MMM yyyy")}{" "}
             at {format(new Date(dateReference), "HH:mm")}
           </p>
         </div>
@@ -141,7 +138,7 @@ function BookingDataBox({ booking }: BookingDataBoxProps) {
 
       <Footer>
         <p>
-          Booked on: {format(new Date(created_at), "EEE, MMM dd yyyy, HH:mm")}
+          Booked on: {format(new Date(created_at), "EEE, dd MMM yyyy - HH:mm")}
         </p>
       </Footer>
     </StyledBookingDataBox>
