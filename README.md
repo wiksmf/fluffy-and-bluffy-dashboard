@@ -2,6 +2,10 @@
 
 A modern React-based desktop dashboard application for managing bookings, services, plans, and user accounts. Built with TypeScript, React Query, and Supabase for a robust and scalable solution.
 
+## 🌐 Demo
+
+**Live Site**: [https://fluffy-and-bluffy-dashboard.vercel.app/](https://fluffy-and-bluffy-dashboard.vercel.app/)
+
 ## 🚀 Features
 
 - **Authentication System**: Secure login/logout functionality
