@@ -11,7 +11,7 @@ import { HiOutlineNoSymbol } from "react-icons/hi2";
 const StyledAppLayout = styled.div<{ collapsed?: boolean }>`
   display: grid;
   grid-template-columns: ${(props) =>
-    props.collapsed ? "6rem 1fr" : "30rem 1fr"};
+    props.collapsed ? "6rem 1fr" : "25rem 1fr"};
   grid-template-rows: auto auto 1fr;
   height: 100vh;
   background-color: var(--color-grey-50);
