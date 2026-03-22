@@ -27,7 +27,7 @@ const Box = styled.div`
 
   & p {
     margin-bottom: 3.2rem;
-    color: var(--color-grey-500);
+    color: var(--color-grey-300);
   }
 `;
 

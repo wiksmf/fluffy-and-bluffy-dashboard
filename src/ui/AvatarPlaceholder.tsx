@@ -8,7 +8,7 @@ const AvatarPlaceholder = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-grey-500);
+  color: var(--color-grey-300);
   font-weight: 600;
 `;
 

@@ -29,14 +29,14 @@ const Description = styled.div`
 
 const ShortDescription = styled.div`
   font-size: 1.4rem;
-  color: var(--color-grey-600);
+  color: var(--color-grey-300);
 `;
 
 const ShowHome = styled.div`
   font-size: 1.2rem;
   font-weight: 500;
   color: ${(props) =>
-    props.color === "true" ? "var(--color-tertiary)" : "var(--color-grey-500)"};
+    props.color === "true" ? "var(--color-tertiary)" : "var(--color-grey-300)"};
 `;
 
 const Img = styled.img`

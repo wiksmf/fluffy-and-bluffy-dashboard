@@ -32,7 +32,7 @@ const Stacked = styled.div`
   }
 
   & span:not(:first-child) {
-    color: var(--color-grey-500);
+    color: var(--color-grey-300);
     font-size: 1.2rem;
   }
 `;

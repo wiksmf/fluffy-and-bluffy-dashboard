@@ -18,7 +18,7 @@ const Label = styled.div`
   & svg {
     width: 2rem;
     height: 2rem;
-    color: var(--color-grey-600);
+    color: var(--color-grey-300);
   }
 `;
 
@@ -32,7 +32,7 @@ const Content = styled.div`
   & svg {
     width: 2rem;
     height: 2rem;
-    color: var(--color-grey-600);
+    color: var(--color-grey-300);
   }
 `;
 

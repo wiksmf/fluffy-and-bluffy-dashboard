@@ -11,7 +11,7 @@ const StyledUserAvatar = styled.div`
   align-items: center;
   font-weight: 500;
   font-size: 1.4rem;
-  color: var(--color-grey-600);
+  color: var(--color-grey-300);
 `;
 
 function UserAvatar() {

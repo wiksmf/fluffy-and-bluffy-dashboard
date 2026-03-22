@@ -41,7 +41,7 @@ const StyledNavLink = styled(NavLink)`
   & svg {
     width: 2.3rem;
     height: 2.3rem;
-    color: var(--color-grey-500);
+    color: var(--color-grey-300);
     transition: all 0.3s;
   }
 

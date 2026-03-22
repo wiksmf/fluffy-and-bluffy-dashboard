@@ -54,7 +54,7 @@ const Section = styled.section`
 const Footer = styled.footer`
   padding: 1.6rem 4rem;
   font-size: 1.4rem;
-  color: var(--color-grey-600);
+  color: var(--color-grey-300);
   text-align: right;
   border-top: 1px solid var(--color-grey-200);
 `;

@@ -5,7 +5,7 @@ const ButtonText = styled.button`
   align-items: center;
   gap: 0.3rem;
   font-weight: 500;
-  color: var(--color-grey-600);
+  color: var(--color-grey-300);
   background: none;
   border: none;
   border-radius: var(--border-radius-sm);

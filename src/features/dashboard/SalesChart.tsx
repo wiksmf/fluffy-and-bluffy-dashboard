@@ -8,6 +8,7 @@ import {
   Tooltip,
   XAxis,
   YAxis,
+  Legend,
 } from "recharts";
 
 import { useDarkMode } from "../../context/DarkModeContext";
@@ -70,14 +71,14 @@ function BookingsChart({ bookings, numDays }: BookingsChartProps) {
 
   const colors = isDarkMode
     ? {
-        totalBookings: { stroke: "#1447e6", fill: "#1447e6" },
-        confirmedBookings: { stroke: "#008236", fill: "#008236" },
+        totalBookings: { stroke: "#537cf7", fill: "#a2b3e4" },
+        confirmedBookings: { stroke: "#03C988", fill: "#91f2d2" },
         text: "#e5e7eb",
         background: "#101828",
       }
     : {
         totalBookings: { stroke: "#1447e6", fill: "#dbeafe" },
-        confirmedBookings: { stroke: "#008236", fill: "#dcfce7" },
+        confirmedBookings: { stroke: "#107b70", fill: "#ccf9ea" },
         text: "#374151",
         background: "#fff",
       };
@@ -85,13 +86,18 @@ function BookingsChart({ bookings, numDays }: BookingsChartProps) {
   return (
     <StyledBookingsChart>
       <Heading as="h2">
-        Booking trends from {format(allDates[0] || new Date(), "MMM dd yyyy")}{" "}
+        Booking trends from {format(allDates[0] || new Date(), "dd MMM yyyy")}{" "}
         &mdash;{" "}
-        {format(allDates[allDates.length - 1] || new Date(), "MMM dd yyyy")}{" "}
+        {format(allDates[allDates.length - 1] || new Date(), "dd MMM yyyy")}{" "}
       </Heading>
 
       <ResponsiveContainer height={300} width="100%">
         <AreaChart data={data}>
+          <Legend
+            verticalAlign="top"
+            height={80}
+            wrapperStyle={{ color: colors.text }}
+          />
           <XAxis
             dataKey="label"
             tick={{ fill: colors.text }}

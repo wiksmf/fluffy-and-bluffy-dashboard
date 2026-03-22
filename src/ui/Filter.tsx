@@ -33,7 +33,7 @@ const FilterButton = styled.button<FilterButtonProps>`
 
   &:hover:not(:disabled) {
     background-color: var(--color-secondary);
-    color: var(--color-grey-800);
+    color: var(--color-grey-50);
   }
 `;
 

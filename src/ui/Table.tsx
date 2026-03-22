@@ -22,7 +22,7 @@ const StyledHeader = styled(CommonRow)`
   padding: 1.6rem 2.4rem;
   font-weight: 600;
   letter-spacing: 0.4px;
-  color: var(--color-grey-600);
+  color: var(--color-grey-300);
   background-color: var(--color-grey-50);
   border-top-left-radius: var(--border-radius-md);
   border-top-right-radius: var(--border-radius-md);

@@ -9,8 +9,8 @@ const GlobalStyles = createGlobalStyle`
       --color-grey-200: #e5e7eb;
       --color-grey-300: #d1d5dc;
       --color-grey-400: #99a1af;
-      --color-grey-500: #6a7282;
-      --color-grey-600: #4a5565;
+      --color-grey-300: #6a7282;
+      --color-grey-300: #4a5565;
       --color-grey-700: #364153;
       --color-grey-800: #1e2939;
       --color-grey-900: #101828;
@@ -31,15 +31,15 @@ const GlobalStyles = createGlobalStyle`
       --color-grey-200: #364153;
       --color-grey-300: #4a5565;
       --color-grey-400: #6a7282;
-      --color-grey-500: #99a1af;
-      --color-grey-600: #d1d5dc;
+      --color-grey-300: #99a1af;
+      --color-grey-300: #d1d5dc;
       --color-grey-700: #e5e7eb;
       --color-grey-800: #f3f4f6;
       --color-grey-900: #f9fafb;
 
-      --color-primary:#7fd4d8;
-      --color-secondary:#79b6b9;
-      --color-tertiary:#49adad;
+      --color-primary: #00f3ff;
+      --color-secondary: #8bf4fa;
+      --color-tertiary: #4cf7ff;
 
       --backdrop-color: rgba(0, 0, 0, 0.3);
 
@@ -114,7 +114,7 @@ const GlobalStyles = createGlobalStyle`
   select:disabled,
   input:disabled {
     background-color: var(--color-grey-200);
-    color: var(--color-grey-500);
+    color: var(--color-grey-300);
   }
 
   input:focus,

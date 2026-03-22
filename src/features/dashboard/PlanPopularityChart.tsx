@@ -1,12 +1,5 @@
 import styled from "styled-components";
-import {
-  Cell,
-  Legend,
-  Pie,
-  PieChart,
-  ResponsiveContainer,
-  Tooltip,
-} from "recharts";
+import { Legend, Pie, PieChart, ResponsiveContainer } from "recharts";
 
 import { useDarkMode } from "../../context/DarkModeContext";
 
@@ -28,8 +21,8 @@ const ChartBox = styled.div`
   }
 `;
 
-const planColors = ["#1ad426", "#ef4444", "#3b82f6"];
-const planColorsDark = ["#36b349", "#be4543", "#5689b9"];
+const planColors = ["#41cb86", "#ee475a", "#7f53d6"];
+const planColorsDark = ["#7ef690", "#fa9290", "#80bff9"];
 
 interface Booking {
   id: number;
@@ -50,6 +43,8 @@ interface ChartData {
   plan: string;
   value: number;
   color: string;
+  fill?: string;
+  stroke?: string;
 }
 
 interface PlanPopularityChartProps {
@@ -73,6 +68,8 @@ function PlanPopularityChart({ bookings }: PlanPopularityChartProps) {
       plan,
       value: count as number,
       color: colors[index % colors.length],
+      fill: colors[index % colors.length],
+      stroke: colors[index % colors.length],
     }))
     .sort((a, b) => (b.value as number) - (a.value as number));
 
@@ -83,7 +80,7 @@ function PlanPopularityChart({ bookings }: PlanPopularityChartProps) {
         <p>No booking data available</p>
       ) : (
         <>
-          <ResponsiveContainer width="100%" height={240}>
+          <ResponsiveContainer width="100%" height={280}>
             <PieChart>
               <Pie
                 data={data}
@@ -91,25 +88,20 @@ function PlanPopularityChart({ bookings }: PlanPopularityChartProps) {
                 dataKey="value"
                 innerRadius={85}
                 outerRadius={110}
-                cx="40%"
+                cx="45%"
                 cy="50%"
                 paddingAngle={3}
-              >
-                {data.map((entry) => (
-                  <Cell
-                    fill={entry.color}
-                    stroke={entry.color}
-                    key={entry.plan}
-                  />
-                ))}
-              </Pie>
-              <Tooltip />
+                label={(entry: { percent?: number }) =>
+                  `${Math.round((entry.percent ?? 0) * 100)}%`
+                }
+                labelLine={false}
+              />
               <Legend
                 verticalAlign="middle"
                 align="right"
-                width="30%"
+                width="27%"
                 layout="vertical"
-                iconSize={15}
+                iconSize={12}
                 iconType="circle"
               />
             </PieChart>

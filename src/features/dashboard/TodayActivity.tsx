@@ -88,7 +88,7 @@ const StyledNavLink = styled(NavLink)`
   & svg {
     width: 2.3rem;
     height: 2.3rem;
-    color: var(--color-grey-500);
+    color: var(--color-grey-300);
     transition: all 0.3s;
   }
 
@@ -119,8 +119,13 @@ interface TodayActivityProps {
 }
 
 function TodayActivity({ bookings }: TodayActivityProps) {
-  const todayBookings =
-    bookings?.filter((booking) => isToday(new Date(booking.date))) || [];
+  const todayBookings = (bookings || [])
+    .filter((booking) => isToday(new Date(booking.date)))
+    .sort(
+      (a, b) =>
+        parse(a.hour, "HH:mm:ss", new Date()).getTime() -
+        parse(b.hour, "HH:mm:ss", new Date()).getTime()
+    );
 
   return (
     <StyledToday>

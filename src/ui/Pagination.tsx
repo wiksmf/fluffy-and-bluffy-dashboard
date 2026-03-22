@@ -58,7 +58,7 @@ const PaginationButton = styled.button<PaginationButtonProps>`
   }
 
   &:hover:not(:disabled) {
-    background-color: var(--color-grey-600);
+    background-color: var(--color-grey-300);
     color: var(--color-grey-50);
   }
 `;
